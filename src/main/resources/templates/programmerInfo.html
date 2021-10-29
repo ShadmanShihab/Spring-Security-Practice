@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<table th:if="${programmerList != null && programmerList.size() > 0}">
+    <tr>
+        <th>Name</th>
+        <th>Language</th>
+    </tr>
+
+    <div th:each="programmer : ${programmerList}">
+        <tr>
+            <td th:text="${programmer.pName}"></td>
+            <td th:text="${programmer.pLang}"></td>
+        </tr>
+    </div>
+</table>
+</body>
+</html>
