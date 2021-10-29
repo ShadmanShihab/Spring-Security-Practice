@@ -21,12 +21,12 @@ public class ProgrammerController {
         return "home";
     }
 
-    @RequestMapping(value = "/addProgrammer", method = RequestMethod.GET)
-    public String addProgrammer( @RequestParam String pName, @RequestParam String pLang, Model model){
-        model.addAttribute("pName", pName);
-        model.addAttribute("pLang", pLang);
-        return "programmerInfo";
-    }
+//    @RequestMapping(value = "/addProgrammer", method = RequestMethod.GET)
+//    public String addProgrammer( @RequestParam String pName, @RequestParam String pLang, Model model){
+//        model.addAttribute("pName", pName);
+//        model.addAttribute("pLang", pLang);
+//        return "programmerInfo";
+//    }
 
     @PostMapping("/addProgrammer")
     public String addProgrammer(@ModelAttribute Programmer programmer, RedirectAttributes redirectAttributes){
@@ -40,5 +40,15 @@ public class ProgrammerController {
         List<Programmer> programmerList = programmerService.show();
         model.addAttribute("programmerList",  programmerList);
         return "programmerInfo.html";
+    }
+
+    @GetMapping("/admin")
+    public String showAdminPanel(Model model) {
+        return "adminPanel.html";
+    }
+
+    @GetMapping("/user")
+    public String showUserPanel(Model model) {
+        return "userPanel.html";
     }
 }
